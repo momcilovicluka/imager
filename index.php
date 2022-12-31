@@ -1,3 +1,35 @@
+<?php
+require_once("db_utils.php");
+
+$d = new Database();
+$errors = [];
+$messages = [];
+
+session_start();
+
+if (isset($_GET["logout"])) {
+    session_destroy();
+} elseif (isset($_SESSION["user"])) {
+    header("Location: imager.php");
+}
+
+if (isset($_GET["login-fail"])) {
+    $messages[] = "Pogrešan username ili šifra";
+}
+
+if (isset($_GET["forget-me"])) {
+    setcookie("username", "", time() - 1000);
+    header("Location: index.php");
+}
+
+function outputError($errorCode)
+{
+    global $errors;
+    if (isset($errors[$errorCode])) {
+        echo '<div class="error">' . $errors[$errorCode] . '</div>';
+    }
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -40,7 +72,7 @@
                         <h3 class="mb-4 text-center">Have an account?</h3>
                         <form action="imager.php" method="post" class="signin-form">
                             <div class="form-group">
-                                <input type="text" value="<?php echo isset($_COOKIE["username"]) ? $_COOKIE["username"] : ""; ?>" class="form-control" placeholder="Username" required>
+                                <input type="text" name="username" value="<?php echo isset($_COOKIE["username"]) ? $_COOKIE["username"] : ""; ?>" class="form-control" placeholder="Username" required>
                             </div>
                             <div class="form-group">
                                 <input id="password-field" type="password" name="password" class="form-control" placeholder="Password" required>
@@ -57,7 +89,7 @@
                                     </label>
                                 </div>
                                 <div class="w-50 text-md-right">
-                                    <a href="#" style="color: #fff">Forgot Password</a>
+                                    <a href="?forget-me" style="color: #fff">Look at the tip of the pen</a>
                                 </div>
                             </div>
                         </form>

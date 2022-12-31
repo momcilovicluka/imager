@@ -5,32 +5,7 @@ $d = new Database();
 $errors = [];
 $messages = [];
 
-session_start();
-
-if (isset($_GET["logout"])) {
-    session_destroy();
-} elseif (isset($_SESSION["user"])) {
-    header("Location: profile.php");
-}
-
-if (isset($_GET["login-fail"])) {
-    $messages[] = "Pogrešan username ili šifra";
-}
-
-if (isset($_GET["forget-me"])) {
-    setcookie("username", "", time() - 1000);
-    header("Location: login.php");
-}
-
-function outputError($errorCode)
-{
-    global $errors;
-    if (isset($errors[$errorCode])) {
-        echo '<div class="error">' . $errors[$errorCode] . '</div>';
-    }
-}
-
-$name = $username = $avatar = $password1 = $password2 =  "";
+$name = $username = $password1 = $password2 =  "";
 
 if (isset($_POST["signup"])) {
     // Setovanje promenljivih iz registracione forme
@@ -61,7 +36,7 @@ if (isset($_POST["signup"])) {
     }
 
     if (empty($errors)) {
-        $success = $d->insertUser($username, $password1, $name, $avatar);
+        $success = $d->insertUser($username, $password1, $name);
         $messages[] = $success ? "Uspešno ste se registrovali" : "Registracija nije uspela";
     }
 }

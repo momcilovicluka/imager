@@ -1,14 +1,12 @@
-<!DOCTYPE html>
 <?php
 require_once("db_utils.php");
 session_start();
 $d = new Database();
-
 $main_user = false;
 if (isset($_POST["loginButton"])) {
     $main_user = $d->checkLogin($_POST["username"], $_POST["password"]);
     if (!$main_user) {
-        header("Location: index.php?login-fail" . $main_user["name"]);
+        header("Location: index.php?login-fail");
     } else {
         $_SESSION["user"] = $main_user;
         if ($_POST["remember-me"]) {
@@ -73,18 +71,26 @@ function errorMessage($message)
         echo "</div><br>";
     }
     ?>
+    <div>
+        <h3 class="mb-4" style="font-size:20px;color:white; font-weight:100;">Uspesno ulogovan <?php echo $main_user["username"]; ?></h3>
+        <div style="position: absolute; top: 0; left: 0; right: 0; margin-left: auto; margin-right:auto; padding: 10px;" class="login-wrap p-0">
+            <div class="heading-section" style="position: relative; top: 0; left: 0; right: 0; margin-left: 900px; margin-right:auto; left padding: 10px;">
+                <p style="font-size:30px;">IMAGER</p>
+            </div>
+        </div>
+        <div style="position: absolute; top: 0; right: 0; padding: 10px;" class="login-wrap p-0">
+            <div style="position: relative; top: 0; right: 0; padding: 10px;" class="social d-flex text-center">
+                <a href="index.php?logout" class="px-2 py-2 mr-md-1 rounded">Logout</a>
+            </div>
+        </div>
+    </div>
     <section class="ftco-section">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-6 text-center mb-5">
-                    <h1 class="heading-section" style="font-size: 70px;">IMAGER</h1>
-                    <p style="color:#a400ea; background-color: 00005050;">A new revolutionary way to upload your images and share them with the world</p>
-                </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-6 col-lg-4">
                     <div class="login-wrap p-0">
-                        <h3 class="mb-4 text-center">Uspesno ulogovan <?php echo $_SESSION["user"] ?></h3>
                     </div>
                 </div>
             </div>

@@ -68,6 +68,8 @@ class Database
     public function checkLogin($username, $password)
     {
         try {
+            echo $username;
+            echo $password;
             $hashed_password = crypt($password, $this->hashing_salt);
             $sql = "SELECT * FROM " . "User" . " WHERE " . "username" . "=:username and " . "password" . "=:password";
             $st = $this->conn->prepare($sql);

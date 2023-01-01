@@ -32,6 +32,7 @@ if (isset($_POST["uploadButton"])) {
     if (isset($_FILES["image"])) {
         processForm();
         $filename = "files/" . basename($_FILES["image"]["name"]);
+        setcookie($main_user["username"], $_POST["title"], time() + 60 * 60 * 24 * 365);
         $success = $d->insertImage($_POST["title"], $main_user["username"], $filename);
         if (!$success) {
             errorMessage("You already uploaded an image with that title.");
@@ -132,7 +133,8 @@ function errorMessage($message)
                 <h3 style="font-size:20;" class="mb-4 text-center">Uploan an image yourself:</h3>
                 <form action="" enctype="multipart/form-data" method="post" class="signin-form">
                     <div class="form-group">
-                        <input type="text" name="title" value="<?=$_COOKIE["username"]?>'s image" class="form-control" placeholder="Title" required>
+                        <input type="text" name="title" value="<?php if (isset($_COOKIE[$main_user["username"]])) echo $_COOKIE[$main_user["username"]];
+                                                                else echo "Image title" ?>" class="form-control" placeholder="Title" required>
                     </div>
                     <div class="form-group">
                         <input type="file" name="image" class="form-control" placeholder="Image" accept="image/png, image/gif, image/jpeg" required>
@@ -144,22 +146,24 @@ function errorMessage($message)
             </div>
         </div>
     </div>
-    <div class="containerImage">
-        <?php
-        $count = 0;
-        foreach ($images as $image) {
-            if($count == 0)
-                echo "<div class=\"containerImage\">";
-            echo $image->getHtml();
-            $count++;
-            if($count == 4){
-                echo "</div>";
-                $count = 0;
-            }
-        }
-        ?>
+    <div>
+
     </div>
-    <div style="text-align: center;">
+    <?php
+    $count = 0;
+    foreach ($images as $image) {
+        if ($count == 0)
+            echo "<div class=\"containerImage\">";
+        echo $image->getHtml();
+        $count++;
+        if ($count == 4) {
+            echo "</div>";
+            $count = 0;
+        }
+    }
+    ?>
+    </div>
+    <div style="text-align: center; padding:3%">
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
     </div>
 

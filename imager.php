@@ -7,6 +7,7 @@ if (isset($_POST["loginButton"])) {
     $main_user = $d->checkLogin($_POST["username"], $_POST["password"]);
     if (!$main_user) {
         header("Location: index.php?login-fail");
+        exit();
     } else {
         $_SESSION["user"] = $main_user;
         if ($_POST["remember-me"]) {

@@ -51,9 +51,9 @@ function outputError($errorCode)
 <body class="img js-fullheight" style="background-image: url(images/bg.jpg);">
     <?php
     if (!empty($messages)) {
-        echo "<div>";
+        echo "<div class=\"mb-4 text-center\">";
         foreach ($messages as $message) {
-            echo "<div>$message</div>";
+            echo "<h4 style=\"color:#ea0069; background-color: 00005050;\">$message</h4>";
         }
         echo "</div><br>";
     }

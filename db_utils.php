@@ -52,12 +52,11 @@ class Database
         }
     }
 
-    public function getPosts($userId)
+    public function getImages()
     {
         try {
-            $sql = "SELECT * FROM " . TBL_POST . " WHERE " . COL_POST_USERID . "=:user";
+            $sql = "SELECT * FROM " . "image";
             $st = $this->conn->prepare($sql);
-            $st->bindValue("user", $userId, PDO::PARAM_INT);
             $st->execute();
             return $st->fetchAll();
         } catch (PDOException $e) {
@@ -82,24 +81,30 @@ class Database
         }
     }
 
-    public function insertPost($content, $userId)
+    public function insertImage($title, $username, $image)
     {
         try {
-            $sql = "INSERT INTO " . TBL_POST . " (".COL_POST_TIME.","
-                                                          .COL_POST_CONTENT.","
-                                                          .COL_POST_USERID.")"
-                          ."VALUES (:time, :content, :userId)";
-            
-            $time = date("d.m.Y H:i:s");
+            $sql_existing_image = "SELECT * FROM " . "Image" . " WHERE " . "title" . "= :title and " . "username" . "= :username";
+            $st = $this->conn->prepare($sql_existing_image);
+            $st->bindValue(":username", $username, PDO::PARAM_STR);
+            $st->bindValue(":title", $title, PDO::PARAM_STR);
+            $st->execute();
+            if ($st->fetch()) {
+                return false;
+            }
+
+            $sql = "INSERT INTO " . "image" . " ("."title".","
+                                                          ."username".","
+                                                          ."image".")"
+                          ."VALUES (:title, :username, :image)";
             
             $st = $this->conn->prepare($sql);
-            $st->bindValue("time", $time, PDO::PARAM_STR);
-            $st->bindValue("content", $content, PDO::PARAM_STR);
-            $st->bindValue("userId", $userId, PDO::PARAM_INT);
+            $st->bindValue("title", $title, PDO::PARAM_STR);
+            $st->bindValue("username", $username, PDO::PARAM_STR);
+            $st->bindValue("image", $image, PDO::PARAM_STR);
             return $st->execute();
         } catch (PDOException $e) {
             return false;
         }
     }
-
 }

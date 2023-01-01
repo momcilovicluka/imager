@@ -89,12 +89,12 @@ if (isset($_POST["signup"])) {
                                 <input type="text" name="username" value="<?php echo $username; ?>" class="form-control" placeholder="Username" required>
                             </div>
                             <div class="form-group">
-                                <input id="password-field" type="password1" name="password1" class="form-control" placeholder="Password" required>
-                                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                <input id="password-field1" type="password1" name="password1" class="form-control" placeholder="Password" required>
+                                <span toggle="#password-field1" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
                             <div class="form-group">
-                                <input id="password-field" type="password2" name="password2" class="form-control" placeholder="Repeat Password" required>
-                                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                <input id="password-field2" type="password2" name="password2" class="form-control" placeholder="Repeat Password" required>
+                                <span toggle="#password-field2" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
                             <div class="form-group">
                                 <button type="submit" name="signup" class="form-control btn btn-primary submit px-3">Sign Up</button>

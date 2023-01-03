@@ -2277,7 +2277,7 @@ pre code {
   color: #495057;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
+  border: 1px solid #0000ff !important;
   border-radius: 0.25rem;
   -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
@@ -7648,7 +7648,7 @@ button.bg-dark:focus {
 }
 
 .rounded {
-  border-radius: 0.25rem !important;
+  border-radius: 40px !important;
 }
 
 .rounded-top {
@@ -11982,7 +11982,7 @@ textarea.form-control {
 }
 
 .btn.btn-primary {
-  background: #a400ea !important;
+  background-color: #ff0050;
   border: 1px solid #0000ff !important;
   color: #000 !important;
 }

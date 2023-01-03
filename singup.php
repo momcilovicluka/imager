@@ -74,7 +74,7 @@ if (isset($_POST["signup"])) {
                     }
                     ?>
                     <h1 class="heading-section" style="font-size: 70px;">IMAGER</h1>
-                    <p style="color:#a400ea; background-color: 00005050;">Join people who are already using imager</p>
+                    <p style="color:#fff; background-color: 00005050;">Join people who are already using imager</p>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -97,7 +97,7 @@ if (isset($_POST["signup"])) {
                                 <span toggle="#password-field2" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
                             <div class="form-group">
-                                <button type="submit" name="signup" class="form-control btn btn-primary submit px-3">Sign Up</button>
+                                <button type="submit" style="color: white !important;" name="signup" class="form-control btn btn-primary submit px-3">Sign Up</button>
                             </div>
                         </form>
                         <div class="social d-flex text-center">
@@ -108,6 +108,12 @@ if (isset($_POST["signup"])) {
             </div>
         </div>
     </section>
+
+    <div class=" text-center" style="color: #ffffff; font-size: 20px; position: absolute; bottom: 0; width: 100%;">
+        <p>
+            Made with <i class="fa fa-heart" style="color: #ea0069"></i> by <a href="https://github.com/momcilovicluka" target="_blank">Luka</a>
+        </p>
+    </div>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.js"></script>

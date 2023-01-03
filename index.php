@@ -63,13 +63,13 @@ function outputError($errorCode)
             <div class="row justify-content-center">
                 <div class="col-md-6 text-center mb-5">
                     <h1 class="heading-section" style="font-size: 70px;">IMAGER</h1>
-                    <p style="color:#a400ea; background-color: 00005050;">A new revolutionary way to upload your images and share them with the world</p>
+                    <p style="color: #ffffff; border-radius:50px;">A new revolutionary way to upload your images and share them with the world</p>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-6 col-lg-4">
                     <div class="login-wrap p-0">
-                        <h3 class="mb-4 text-center">Have an account?</h3>
+                        <h3 class="mb-4 text-center">Login and start sharing images!</h3>
                         <form action="imager.php" method="post" class="signin-form">
                             <div class="form-group">
                                 <input type="text" name="username" value="<?php echo isset($_COOKIE["username"]) ? $_COOKIE["username"] : ""; ?>" class="form-control" placeholder="Username" required>
@@ -79,7 +79,7 @@ function outputError($errorCode)
                                 <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
                             <div class="form-group">
-                                <button type="submit" name="loginButton" class="form-control btn btn-primary submit px-3">Log In</button>
+                                <button type="submit" style="color: white !important;" name="loginButton" class="form-control btn btn-primary submit px-3">Log In</button>
                             </div>
                             <div class="form-group d-md-flex">
                                 <div class="w-50">
@@ -89,7 +89,7 @@ function outputError($errorCode)
                                     </label>
                                 </div>
                                 <div class="w-50 text-md-right">
-                                    <a href="?forget-me" style="color: #fff">Look at the tip of the pen</a>
+                                    <a href="?forget-me" style="color: #0000ff">Look at the tip of the pen</a>
                                 </div>
                             </div>
                         </form>
@@ -101,6 +101,11 @@ function outputError($errorCode)
             </div>
         </div>
     </section>
+    <div class=" text-center" style="color: #ffffff; font-size: 20px; position: absolute; bottom: 0; width: 100%;">
+        <p>
+            Made with <i class="fa fa-heart" style="color: #ea0069"></i> by <a href="https://github.com/momcilovicluka" target="_blank">Luka</a>
+        </p>
+    </div>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.js"></script>

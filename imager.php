@@ -140,7 +140,7 @@ function errorMessage($message)
                         <input type="file" name="image" class="form-control" placeholder="Image" accept="image/png, image/gif, image/jpeg" required>
                     </div>
                     <div class="form-group">
-                        <button type="submit" name="uploadButton" class="form-control btn btn-primary submit px-3">Upload</button>
+                        <button type="submit" style="color: white !important;" name="uploadButton" class="form-control btn btn-primary submit px-3">Upload</button>
                     </div>
                 </form>
             </div>

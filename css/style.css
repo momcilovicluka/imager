@@ -12026,7 +12026,7 @@ textarea.form-control {
 
 .containerImage {
   position: relative;
-  width: 1160px;
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;

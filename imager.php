@@ -116,8 +116,8 @@ function errorMessage($message)
     ?>
     <div>
         <h3 class="mb-4" style="font-size:20px;color:white; font-weight:100; padding-left:5px"><?= $main_user["username"]; ?></h3>
-        <div style="position: absolute; top: 0; left: 0; right: 0; margin-left: auto; margin-right:auto;" class="login-wrap p-0">
-            <div class="heading-section" style="position: relative; top: 0; left: 0; right: 0; margin-left: 47%; margin-right:auto;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; margin-left: auto; margin-right:auto; text-align:center" class="login-wrap p-0">
+            <div class="heading-section" style="position: relative;">
                 <p style="font-size:35px;">IMAGER</p>
             </div>
         </div>

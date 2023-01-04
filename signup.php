@@ -73,8 +73,10 @@ if (isset($_POST["signup"])) {
                         echo "</div><br>";
                     }
                     ?>
-                    <h1 class="heading-section" style="font-size: 70px;">IMAGER</h1>
+                    <h1 class="heading-section" style="font-size: 70px; transform:translateY(-25%)">IMAGER</h1>
+                    <!--
                     <p style="color:#fff; background-color: 00005050;">Join people who are already using imager</p>
+                -->
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -108,10 +110,10 @@ if (isset($_POST["signup"])) {
             </div>
         </div>
     </section>
-
-    <div class=" text-center" style="color: #ffffff; font-size: 20px; position: absolute; bottom: 0; width: 100%;">
+    <br>
+    <div class=" text-center" style="color: #ffffff; font-size: 20px; position: relative; padding-top:5%; margin-bottom:0; bottom: 0; width: 100%;">
         <p>
-            Made with <i class="fa fa-heart" style="color: #ea0069"></i> by <a href="https://github.com/momcilovicluka" target="_blank">Luka</a>
+            Made with <i class="fa fa-heart" style="color: #ea0069; margin-bottom:0;"></i> by <a href="https://github.com/momcilovicluka" target="_blank">Luka</a>
         </p>
     </div>
 

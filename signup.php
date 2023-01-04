@@ -110,10 +110,9 @@ if (isset($_POST["signup"])) {
             </div>
         </div>
     </section>
-    <br>
-    <div class=" text-center" style="color: #ffffff; font-size: 20px; position: relative; padding-top:5%; margin-bottom:0; bottom: 0; width: 100%;">
+    <div class=" text-center" style="color: #ffffff; font-size: 20px; position: relative; padding-top:5%; transform:translateY(-103px); width: 100%;">
         <p>
-            Made with <i class="fa fa-heart" style="color: #ea0069; margin-bottom:0;"></i> by <a href="https://github.com/momcilovicluka" target="_blank">Luka</a>
+            Made with <i class="fa fa-heart" style="color: #ea0069;"></i> by <a href="https://github.com/momcilovicluka" target="_blank">Luka</a>
         </p>
     </div>
 

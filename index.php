@@ -77,10 +77,13 @@ function outputError($errorCode)
                         <form action="imager.php" method="post" class="signin-form">
                             <div class="form-group">
                                 <input type="text" name="username" value="<?php echo isset($_COOKIE["username"]) ? $_COOKIE["username"] : ""; ?>" class="form-control" placeholder="Username" required>
+                                <!--<label style="color:white; position:absolute; top:3px; left: 20px; padding: 10px 0; ">
+                                    Username
+                                </label>-->
                             </div>
                             <div class="form-group">
                                 <input id="password-field" type="password" name="password" class="form-control" placeholder="Password" required>
-                                <span toggle="#password-field"  class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
                             <div class="form-group">
                                 <button type="submit" style="color: white !important;" name="loginButton" class="form-control btn btn-primary submit px-3">Log In</button>
@@ -93,7 +96,7 @@ function outputError($errorCode)
                                     </label>
                                 </div>
                                 <div class="w-50 text-md-right">
-                                    <a href="?forget-me" style="color: #0000ff">Forget me</a>
+                                    <a href="?forget-me" style="color: #0000ff; padding:5px">Forget me</a>
                                 </div>
                             </div>
                         </form>
@@ -106,7 +109,7 @@ function outputError($errorCode)
         </div>
     </section>
     <br>
-    <div class=" text-center" style="color: #ffffff; font-size: 20px; position: relative; padding-top:5%; margin-bottom:0; bottom: 0; width: 100%;">
+    <div class=" text-center" style="color: #ffffff; font-size: 20px; position: relative; padding-top:5%; transform:translateY(15px); margin-bottom:0; bottom: 0; width: 100%;">
         <p>
             Made with <i class="fa fa-heart" style="color: #ea0069; margin-bottom:0;"></i> by <a href="https://github.com/momcilovicluka" target="_blank">Luka</a>
         </p>

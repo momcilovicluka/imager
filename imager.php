@@ -10,7 +10,7 @@ if (isset($_POST["loginButton"])) {
     $main_user = $d->checkLogin($_POST["username"], $_POST["password"]);
     if (!$main_user) {
         header("Location: index.php?login-fail");
-        exit();
+        die();
     } else {
         $_SESSION["user"] = $main_user;
         if ($_POST["remember-me"]) {
@@ -74,7 +74,7 @@ function processForm()
 
 $images = array();
 if (isset($_GET["all"])) {
-    $imagesBase = $d->getImages();
+    $imagesBase = $d->getAnimeTiddies() or die();
 } else {
     $imagesBase = $d->getImagesUser($main_user["username"]);
 }

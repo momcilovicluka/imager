@@ -33,26 +33,26 @@ class Database
             if ($st->fetch()) {
                 return false;
             }
-            
+
             $hashed_password = crypt($password, $this->hashing_salt);
 
-            $sql_insert = "INSERT INTO " . "User" . " ("."username".","
-                                                          ."password".","
-                                                          ."name".")"
-                        ." VALUES (:username, :password, :name)";
+            $sql_insert = "INSERT INTO " . "User" . " (" . "username" . ","
+                . "password" . ","
+                . "name" . ")"
+                . " VALUES (:username, :password, :name)";
 
             $st = $this->conn->prepare($sql_insert);
             $st->bindValue("username", $username, PDO::PARAM_STR);
             $st->bindValue("password", $hashed_password, PDO::PARAM_STR);
             $st->bindValue("name", $name, PDO::PARAM_STR);
-            
+
             return $st->execute();
         } catch (PDOException $e) {
             return false;
         }
     }
 
-    public function getImages()
+    public function getAnimeTiddies()
     {
         try {
             $sql = "SELECT * FROM " . "image";
@@ -106,11 +106,11 @@ class Database
                 return false;
             }
 
-            $sql = "INSERT INTO " . "image" . " ("."title".","
-                                                          ."username".","
-                                                          ."image".")"
-                          ."VALUES (:title, :username, :image)";
-            
+            $sql = "INSERT INTO " . "image" . " (" . "title" . ","
+                . "username" . ","
+                . "image" . ")"
+                . "VALUES (:title, :username, :image)";
+
             $st = $this->conn->prepare($sql);
             $st->bindValue("title", $title, PDO::PARAM_STR);
             $st->bindValue("username", $username, PDO::PARAM_STR);

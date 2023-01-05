@@ -31,7 +31,7 @@ class Image
     function getHtml()
     {
         return "
-            <div class=\"box\">
+            <div class=\"box\" onclick=\"window.open('{$this->image}')\">
                 <div class=\"imgBx\">
                     <img src=\"{$this->image}\">
                 </div>

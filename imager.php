@@ -73,7 +73,12 @@ function processForm()
 }
 
 $images = array();
-$imagesBase = $d->getImages();
+if (isset($_GET["all"])) {
+    $imagesBase = $d->getImages();
+} else {
+    $imagesBase = $d->getImagesUser($main_user["username"]);
+}
+//$imagesBase = $d->getImagesUser($main_user["username"]);
 
 foreach ($imagesBase as $image) {
     $images[] = new Image($image["title"], $image["username"], $image["image"]);
@@ -103,22 +108,13 @@ function errorMessage($message)
 </head>
 
 <body class="" style="background-image: url(images/bg.jpg);">
-    <?php
-    if (!empty($messages)) {
-        echo "<div class=\"mb-4 text-center\">";
-        foreach ($messages as $message) {
-            echo ("<script>
-            alert(\"{$message}\");
-        </script>");
-        }
-        echo "</div>";
-    }
-    ?>
-    <div>
-        <h3 class="mb-4" style="font-size:20px;color:white; font-weight:100; padding-left:5px"><?= $main_user["username"]; ?></h3>
+    <div style="padding-bottom:8%">
+        <!--<h3 class="mb-4" style="font-size:20px;color:white; font-weight:100; padding-left:5px"><?= $main_user["username"]; ?></h3>-->
         <div style="position: absolute; top: 0; left: 0; right: 0; margin-left: auto; margin-right:auto; text-align:center" class="login-wrap p-0">
             <div class="heading-section" style="position: relative;">
-                <p style="font-size:35px;">IMAGER</p>
+                <a href="imager.php" style="font-size:25px; left:0; position:absolute; transform:translateY(-3px)" class="px-2 py-2 mr-md-1 rounded"> <?= $main_user["username"]; ?></a>
+                <a href="imager.php?all" style="font-size:35px;" class="px-2 py-2 mr-md-1 rounded">IMAGER</a>
+                <!--<p style="font-size:35px;">IMAGER</p>-->
             </div>
         </div>
         <div style="position: absolute; top: 0; right: 0; padding: 10px;" class="login-wrap p-0">
@@ -134,7 +130,7 @@ function errorMessage($message)
                 <form action="" enctype="multipart/form-data" method="post" class="signin-form">
                     <div class="form-group">
                         <input type="text" name="title" value="<?php if (isset($_COOKIE[$main_user["username"]])) echo $_COOKIE[$main_user["username"]];
-                                                                else echo "Image title" ?>" class="form-control" placeholder="Title" required>
+                                                                ?>" class="form-control" placeholder="Title" required>
                     </div>
                     <div class="form-group">
                         <input type="file" name="image" class="form-control" placeholder="Image" accept="image/png, image/gif, image/jpeg" required>
@@ -173,5 +169,15 @@ function errorMessage($message)
     <script src="js/main.js"></script>
 
 </body>
+
+<?php
+if (!empty($messages)) {
+    foreach ($messages as $message) {
+        echo ("<script>
+            alert(\"{$message}\");
+        </script>");
+    }
+}
+?>
 
 </html>

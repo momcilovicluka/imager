@@ -64,6 +64,19 @@ class Database
         }
     }
 
+    public function getImagesUser($username)
+    {
+        try {
+            $sql = "SELECT * FROM " . "image" . " WHERE " . "username" . "=:username";
+            $st = $this->conn->prepare($sql);
+            $st->bindValue("username", $username, PDO::PARAM_STR);
+            $st->execute();
+            return $st->fetchAll();
+        } catch (PDOException $e) {
+            return array();
+        }
+    }
+
     public function checkLogin($username, $password)
     {
         try {

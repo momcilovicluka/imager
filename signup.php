@@ -16,10 +16,10 @@ if (isset($_POST["signup"])) {
         $username = htmlspecialchars($_POST["username"]);
     }
     if ($_POST["password1"]) {
-        $password1 = $_POST["password1"];
+        $password1 = htmlspecialchars($_POST["password1"]);
     }
     if ($_POST["password2"]) {
-        $password2 = $_POST["password2"];
+        $password2 = htmlspecialchars($_POST["password2"]);
     }
     // Validacija podataka iz registracione forme
     if (!$name) {
@@ -61,18 +61,26 @@ if (isset($_POST["signup"])) {
 
 <body class="img js-fullheight" style="background-image: url(images/bg.jpg);">
     <section class="ftco-section">
+        <?php
+        if (!empty($messages)) {
+            echo "<div class=\"messages\" style=\"position:absolute; top: 0; left: 0; width: 100%; text-align: center;\">";
+            foreach ($messages as $message) {
+                echo "<h4 style=\"color:#ea0069; text-align: center; position:relative; background-color: 00005050;\">$message</h4>";
+            }
+            echo "</div>";
+        }
+        if (!empty($errors)) {
+            echo "<div class=\"messages\" style=\"position:absolute; top: 0; left: 0; width: 100%; text-align: center;\">";
+            foreach ($errors as $message) {
+                echo "<h4 style=\"color:#ea0069; text-align: center; position:relative; background-color: 00005050;\">$message</h4>";
+            }
+            echo "</div><br>";
+        }
+        ?>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6 text-center mb-5">
-                    <?php
-                    if (!empty($messages)) {
-                        echo "<div class=\"mb-4 text-center\">";
-                        foreach ($messages as $message) {
-                            echo "<h4 style=\"color:#ea0069; background-color: 00005050;\">$message</h4>";
-                        }
-                        echo "</div><br>";
-                    }
-                    ?>
+
                     <h1 class="heading-section" style="font-size: 70px; transform:translateY(-25%)">IMAGER</h1>
                     <!--
                     <p style="color:#fff; background-color: 00005050;">Join people who are already using imager</p>
@@ -85,10 +93,10 @@ if (isset($_POST["signup"])) {
                         <h3 class="mb-4 text-center">You can sign up now! </h3>
                         <form action="" method="post" class="signin-form">
                             <div class="form-group">
-                                <input type="text" name="name" value="<?php echo $name; ?>" class="form-control" placeholder="Full Name" required>
+                                <input type="text" name="name" value="<?= $name ?>" class="form-control" placeholder="Full Name" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="username" value="<?php echo $username; ?>" class="form-control" placeholder="Username" required>
+                                <input type="text" name="username" value="<?= $username ?>" class="form-control" placeholder="Username" required>
                             </div>
                             <div class="form-group">
                                 <input id="password-field1" type="password" name="password1" class="form-control" placeholder="Password" required>

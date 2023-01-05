@@ -51,11 +51,12 @@ function outputError($errorCode)
 <body class="img js-fullheight" style="background-image: url(images/bg.jpg);">
     <?php
     if (!empty($messages)) {
-        echo "<div class=\"mb-4 text-center\">";
+        echo "<div class=\"messages\" style=\"position:absolute; top: 0; left: 0; width: 100%; text-align: center;\">";
         foreach ($messages as $message) {
-            echo "<h4 style=\"color:#ea0069; background-color: 00005050;\">$message</h4>";
+
+            echo "<h4 style=\"color:#ea0069; text-align: center; position:relative; background-color: 00005050;\">$message</h4>";
         }
-        echo "</div><br>";
+        echo "</div>";
     }
     ?>
     <section class="ftco-section">

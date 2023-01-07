@@ -30,7 +30,7 @@ class Image
 
     function getHtml()
     {
-        return "
+        return file_exists($this->image) ? "
             <div class=\"box\" onclick=\"window.open('{$this->image}')\">
                 <div class=\"imgBx\">
                     <img src=\"{$this->image}\">
@@ -41,6 +41,6 @@ class Image
                         <p>{$this->username}</p>
                     </div>
                 </div>
-            </div>";
+            </div>" : "";
     }
 }

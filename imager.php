@@ -30,12 +30,16 @@ if (!$main_user) {
 
 if (isset($_POST["uploadButton"])) {
     if (isset($_FILES["image"])) {
-        processForm();
-        $filename = "files/" . basename($_FILES["image"]["name"]);
-        setcookie($main_user["username"], $_POST["title"], time() + 60 * 60 * 24 * 365);
-        $success = $d->insertImage($_POST["title"], $main_user["username"], $filename);
-        if (!$success) {
-            errorMessage("You already uploaded an image with that title.");
+        if (file_exists("files/" . basename($_FILES["image"]["name"]))) {
+            errorMessage("That file already exists.");
+        } else {
+            processForm();
+            $filename = "files/" . basename($_FILES["image"]["name"]);
+            setcookie($main_user["username"], $_POST["title"], time() + 60 * 60 * 24 * 365);
+            $success = $d->insertImage($_POST["title"], $main_user["username"], $filename);
+            if (!$success) {
+                errorMessage("You already uploaded an image with that title.");
+            }
         }
     } else {
         redirect();
@@ -150,6 +154,8 @@ function errorMessage($message)
     foreach ($images as $image) {
         if ($count == 0)
             echo "<div class=\"containerImage\">";
+        if ($image->getHtml() == null)
+            continue;
         echo $image->getHtml();
         $count++;
         if ($count == 4) {

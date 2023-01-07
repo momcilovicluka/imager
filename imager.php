@@ -166,7 +166,7 @@ function errorMessage($message)
     ?>
     </div>
     <div style="text-align: center; padding:3%; position:fixed; bottom:1%; right:1%; z-index:1000;">
-        <a href="#" style="font-size: 300%;" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        <a href="<?php if(random_int(0, 6) == 6) echo "https://youtu.be/dQw4w9WgXcQ"; elseif(random_int(0, 6) == 6) echo "https://youtu.be/zo1HPzIZ0LY"; else echo "#" ?>" style="font-size: 300%;" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
     </div>
     <br>
     <script src="js/jquery.min.js"></script>

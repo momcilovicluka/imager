@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2023 at 07:59 PM
+-- Generation Time: Jan 08, 2023 at 09:23 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -49,7 +49,8 @@ INSERT INTO `image` (`id`, `title`, `username`, `image`) VALUES
 (16, 'Fiona Frost', 'sam', 'files/Screenshot_20221126-223055_Aniyomi.png'),
 (17, 'Nazuna', 'sam', 'files/Screenshot_20221105-222139_Aniyomi.png'),
 (23, 'Smorena Nazuna', 'luka', 'files/Screenshot_20221105-220947_Aniyomi.png'),
-(24, 'cid kagenou', 'luka', 'files/the-eminence-in-shadow.gif');
+(24, 'cid kagenou', 'luka', 'files/the-eminence-in-shadow.gif'),
+(25, 'anos voldigoad', 'luka', 'files/anos-voldigoad.jpg');
 
 -- --------------------------------------------------------
 
@@ -97,7 +98,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `image`
 --
 ALTER TABLE `image`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `user`

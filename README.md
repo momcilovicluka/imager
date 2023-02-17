@@ -16,4 +16,4 @@ This is a PHP site that allows users to upload images with titles and view both 
 - Utilizes cookies and sessions for secure user authentication
 - Custom built User-friendly interface for seamless navigation
 
-Hosted on [000webhost](https://peygr.netlify.app/)
+Hosted on [000webhost](https://www.000webhost.com/)

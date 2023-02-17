@@ -1,4 +1,4 @@
-# <a href="https://imagerluka.000webhostapp.com/index.php" target="_blank">Imager<a>
+# <a href="https://imagerluka.000webhostapp.com/index.php" target="_blank">Imager</a>
 ![Lines of code](https://img.shields.io/tokei/lines/github/momcilovicluka/imager)
 ![GitHub repo size](https://img.shields.io/github/repo-size/momcilovicluka/imager)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/momcilovicluka/imager)

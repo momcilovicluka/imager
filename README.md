@@ -7,7 +7,7 @@ Repozitorij za projekat iz Web Programiranja na PMF-u.
 
 This is a PHP site that allows users to upload images with titles and view both their own and other users' collections. With built-in cookie and session functionality, this site ensures top-level security and authenticates each upload.
 
-### <a href="https://peygr.netlify.app/" target="_blank">Live</a>
+### <a href="https://imagerluka.000webhostapp.com/index.php" target="_blank" target="_blank">Live</a>
 
 
 
